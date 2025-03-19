@@ -8,12 +8,10 @@
 /** @type {Producto[]} */
 
 
-// Productos predeterminados
+// Productos predeterminados simulando una BD
 const productosPorDefecto = [
     { nombre: "Puerta blindada", precio: 1200, cantidad: 8 },
     { nombre: "Taladro", precio: 93.5, cantidad: 25 },
-    { nombre: "Arandelas aluminio 100 ", precio: 1.5, cantidad: 28 },
-    { nombre: "Broca latón 2mm", precio: 3.4, cantidad: 46 }
 ];
 
 
@@ -177,4 +175,7 @@ function limpiarFormulario() {
 }
 
 // Mostrar productos al cargar la página
-mostrarProductos();
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarProductos();
+});
+
