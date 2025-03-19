@@ -1,29 +1,100 @@
 /* styles/style.css */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url('/resources/fondo.jpg');
+    background-size: cover; /* La imagen cubre toda la pantalla, puede recortarse */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
 }
 
-h1, h2 {
-    color: #333;
+
+/* Fondo translúcido para el contenedor principal */
+.container {
+    background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco translúcido */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 30px;
 }
 
+/* Estilo para la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
 }
 
 table, th, td {
-    border: 1px solid black;
-    padding: 10px;
+    border: 1px solid #ddd; /* Borde suave */
+    padding: 12px;
     text-align: left;
 }
 
+th {
+    background-color: rgba(248, 249, 250, 0.9); /* Fondo translúcido para encabezados */
+    color: #2c3e50; /* Títulos de columna en color oscuro */
+}
+
+td {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo translúcido en las celdas */
+}
+
+/* Estilo para los inputs */
+input[type="text"], input[type="number"], button {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido */
+    border: 1px solid #ddd; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px;
+    margin: 5px 0;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, button:focus {
+    outline: none; /* Quitar el borde azul predeterminado al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* Resaltar con un borde azul al hacer foco */
+}
+
+/* Estilo de los botones */
 button {
-    margin-top: 10px;
-    padding: 5px 10px;
+    background-color: #3498db; /* Azul suave */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9; /* Hover con un tono más oscuro */
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Estilo para los inputs al enfocar */
+input[type="text"]:focus, input[type="number"]:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* Resalta los inputs con un contorno azul al enfocar */
+}
+
+/* Estilo de la sección de resumen de inventario */
+.resumen-inventario {
+    padding: 15px;
+    background-color: #f0f8ff; /* Fondo suave */
+    border: 2px solid #008cba; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 18px;
+    font-weight: bold;
+    color: #004d73; /* Texto en un color oscuro */
+    text-align: center; /* Centrar el texto */
+    margin-top: 20px; /* Espacio superior */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.resumen-inventario:before {
+    content: "📊 "; /* Icono de gráfico antes del texto */
 }
