@@ -26,7 +26,11 @@ if (!productos || productos.length === 0) {
 
 /**
  * Agrega o edita un producto en la lista, lo almacena en LocalStorage y actualiza la tabla.
+ * @function agregarProducto
+ * @throws {Error} Si los campos de nombre, precio o cantidad no son válidos o están vacíos, se muestra un mensaje de alerta.
+ * @returns {void} No retorna ningún valor. Actualiza la lista de productos y la interfaz de usuario.
  */
+ 
 function agregarProducto() {
     let nombre = document.getElementById("nombre").value.trim();
     let precio = parseFloat(document.getElementById("precio").value);
@@ -52,6 +56,8 @@ function agregarProducto() {
 
 /**
  * Muestra los productos en la tabla dinámica.
+ * @function mostrarProductos
+ * @returns {void} No retorna ningún valor. Actualiza la tabla de productos en la interfaz de usuario.
  */
 function mostrarProductos() {
     let tbody = document.getElementById("productos-lista");
@@ -74,6 +80,8 @@ function mostrarProductos() {
 /**
  * Abre el modal para editar un producto.
  * @param {number} index - Índice del producto a editar.
+ * @returns {void} No retorna ningún valor. Abre el modal de edición de producto.
+
  */
 function editarProducto(index) {
     let producto = productos[index];
@@ -89,6 +97,8 @@ function editarProducto(index) {
 
 /**
  * Confirma la edición del producto en el modal.
+ * @function confirmarEdicion
+ * @returns {void} No retorna ningún valor. Guarda los cambios y actualiza la lista de productos.
  */
 function confirmarEdicion() {
     let nombre = document.getElementById("edit-nombre").value.trim();
@@ -114,8 +124,11 @@ function confirmarEdicion() {
 
 /**
  * Elimina un producto por índice con confirmación.
+ * @function eliminarProducto
  * @param {number} index - Índice del producto a eliminar.
+ * @returns {void} No retorna ningún valor. Elimina el producto y actualiza la interfaz.@param {number} index - Índice del producto a eliminar.
  */
+
 function eliminarProducto(index) {
     if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
         productos.splice(index, 1);
@@ -126,6 +139,9 @@ function eliminarProducto(index) {
 
 /**
  * Busca productos por nombre y muestra los resultados filtrados.
+ * @function buscarProducto
+ * @returns {void} No retorna ningún valor. Filtra y muestra los productos en la tabla.
+ 
  */
 function buscarProducto() {
     let criterio = document.getElementById("search").value.toLowerCase();
@@ -147,6 +163,8 @@ function buscarProducto() {
 
 /**
  * Guarda la lista de productos en LocalStorage.
+ * @function actualizarLocalStorage
+ * @returns {void} No retorna ningún valor. Actualiza el LocalStorage con la lista de productos.
  */
 function actualizarLocalStorage() {
     localStorage.setItem("productos", JSON.stringify(productos));
@@ -154,14 +172,19 @@ function actualizarLocalStorage() {
 
 /**
  * Calcula el total del inventario y lo muestra en pantalla.
+ * @function mostrarTotalInventario
+ * @returns {void} No retorna ningún valor. Muestra el total del inventario en la interfaz.
  */
 function mostrarTotalInventario() {
     let total = productos.reduce((sum, producto) => sum + (producto.precio * producto.cantidad), 0);
     document.getElementById("total-inventario").innerText = `Total Inventario: ${total.toFixed(2)}€`;
 }
 
+
 /**
  * Limpia el formulario después de agregar/editar.
+ * @function limpiarFormulario
+ * @returns {void} No retorna ningún valor. Limpia los campos del formulario de entrada.
  */
 function limpiarFormulario() {
     document.getElementById("nombre").value = "";
