@@ -7,26 +7,21 @@
 
 /** @type {Producto[]} */
 
+// Cargar productos del localStorage y/o  inicializar con los predeterminados 
+let productos = JSON.parse(localStorage.getItem("productos"));
 
-// Productos predeterminados simulando una BD
-const productosPorDefecto = [
-    { nombre: "Puerta blindada", precio: 1200, cantidad: 8 },
-    { nombre: "Taladro", precio: 93.5, cantidad: 25 },
-];
+// Si no hay productos en localStorage, inicializar con productos por defecto simulando una BD
+if (!productos || productos.length === 0) {
+    productos = [
+        { nombre: "Puerta blindada", precio: 1200, cantidad: 8 },
+        { nombre: "Taladro", precio: 93.5, cantidad: 25 },
+        { nombre: "Martillo", precio: 15, cantidad: 50 },
+        { nombre: "Destornillador eléctrico", precio: 45, cantidad: 30 }
+    ];
+    actualizarLocalStorage(); // Guardar en localStorage para futuras visitas
+    mostrarProductos();
+}
 
-
-// Cargar productos del localStorage o inicializar con los predeterminados sin sobrescribir los guardados
-let productos = JSON.parse(localStorage.getItem("productos")) || [];
-let editandoIndex = -1;  
-// Agregar productos por defecto solo si no están en la lista (evita duplicados)
-productosPorDefecto.forEach(prodDef => {
-    if (!productos.some(prod => prod.nombre === prodDef.nombre)) {
-        productos.push(prodDef);
-    }
-});
-
-actualizarLocalStorage(); // Guarda la combinación en localStorage
-mostrarProductos();
 
 
 /**
