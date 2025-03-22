@@ -31,6 +31,8 @@ if (!productos || productos.length === 0) {
  * @returns {void} No retorna ningún valor. Actualiza la lista de productos y la interfaz de usuario.
  */
  
+let editandoIndex = -1;
+
 function agregarProducto() {
     let nombre = document.getElementById("nombre").value.trim();
     let precio = parseFloat(document.getElementById("precio").value);
